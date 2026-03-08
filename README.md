@@ -1,159 +1,120 @@
-# Turborepo starter
+# 🛠️ start-elysia-monorepo
 
-This Turborepo starter is maintained by the Turborepo core team.
+Welcome to **start-elysia-monorepo**, a professional-grade, high-performance starter template for building modern web applications. Whether you are a solo developer or part of a large team, this monorepo is designed to scale with you while maintaining absolute type safety and a premium developer experience.
 
-## Using this example
+---
 
-Run the following command:
+## 🚀 Quick Start (5-Minute Setup)
 
-```sh
-npx create-turbo@latest
+Follow these steps to get your project up and running locally.
+
+### 1. Prerequisites
+
+You will need two tools installed on your computer:
+
+- **[Bun](https://bun.sh)**: A fast all-in-one JavaScript runtime (replaces Node.js/NPM).
+- **[Docker Desktop](https://www.docker.com/products/docker-desktop/)**: To run your database locally.
+
+### 2. Setup Commands
+
+Open your terminal and run these commands in order:
+
+```bash
+# Install all project dependencies
+bun install
+
+# Create your local environment file
+cp .env.example .env
+
+# Start your local database (Postgres)
+bun db:up
+
+# Basic database setup (create tables)
+cd packages/database && bun db:migrate:dev && cd ../..
+
+# Launch everything!
+bun dev
 ```
 
-## What's inside?
+### 3. Explore your Apps
 
-This Turborepo includes the following packages/apps:
+Once the commands finish, you can access:
 
-### Apps and Packages
+- **Frontend (Web App)**: [http://localhost:3000](http://localhost:3000)
+- **Backend (API)**: [http://localhost:4000](http://localhost:4000)
+- **API Documentation (Swagger)**: [http://localhost:4000/swagger](http://localhost:4000/swagger)
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+---
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+## 📂 Project Layout
 
-### Utilities
+The repository is organized into a **Monorepo** structure, which keeps related code together but clearly separated.
 
-This Turborepo has some additional tools already setup for you:
+- **`apps/`**: The "visible" parts of your project.
+  - `web`: The user interface (React + TanStack Start).
+  - `api`: The brain of the app (Elysia API + Better Auth).
+- **`packages/`**: Shared "engines" that power your apps.
+  - `ui`: Your design system (shadcn/ui + Tailwind 4).
+  - `database`: Where your data lives (Prisma schema + client).
+  - `env`: Validates your secrets and configuration.
+  - `types`: Shared TypeScript definitions.
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+---
 
-### Build
+## 🛠️ Common Workflows
 
-To build all apps and packages, run the following command:
+### Adding New UI Components
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+We use **shadcn/ui**. To add a new component (like a Slider or Accordion):
 
-```sh
-cd my-turborepo
-turbo build
+```bash
+cd apps/web
+bunx --bun shadcn@latest add <component-name>
 ```
 
-Without global `turbo`, use your package manager:
+_Note: Components are automatically stored in `packages/ui` so they can be reused everywhere._
 
-```sh
-cd my-turborepo
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+### Connecting Frontend to Backend
+
+The project uses **Eden Treaty**, giving you "end-to-end" type safety. If you change a route in the API, the Web app will immediately know and show errors if you haven't updated your code.
+
+```ts
+import { api } from "@/lib/api";
+
+// This is fully auto-completed by your editor!
+const { data, error } = await api.health.get();
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+---
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+## ❓ Troubleshooting
 
-```sh
-turbo build --filter=docs
-```
+### "Invalid environment variables" Error
 
-Without global `turbo`:
+This happens if you haven't filled out your `.env` file correctly.
 
-```sh
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+1. Open `.env` at the project root.
+2. Ensure `DATABASE_URL`, `BETTER_AUTH_SECRET`, and `BETTER_AUTH_URL` are set.
+3. If you just want to build without a database, run with `SKIP_ENV_VALIDATION=true`.
 
-### Develop
+### Database Connection Issues
 
-To develop all apps and packages, run the following command:
+If `bun dev` complains about the database:
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
+1. Ensure Docker is running.
+2. Run `bun db:status` to check if the container is healthy.
+3. Run `bun db:up` again if it's down.
 
-```sh
-cd my-turborepo
-turbo dev
-```
+---
 
-Without global `turbo`, use your package manager:
+## 💎 Tech Stack Highlights
 
-```sh
-cd my-turborepo
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+- **Frontend**: [TanStack Start](https://tanstack.com/start) — The next generation of React frameworks.
+- **Backend**: [Elysia](https://elysiajs.com) — Blazing fast, optimized for Bun.
+- **Styling**: [Tailwind CSS 4](https://tailwindcss.com) — Modern, high-performance CSS.
+- **Auth**: [Better Auth](https://www.better-auth.com) — The most comprehensive auth solution for TypeScript.
+- **Tooling**: [Biome](https://biomejs.dev) — Extremely fast linting and formatting.
 
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+---
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo dev --filter=web
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+Made with ❤️ by the test-forge team.
