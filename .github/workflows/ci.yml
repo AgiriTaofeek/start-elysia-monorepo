@@ -10,6 +10,8 @@ jobs:
   quality:
     name: Lint, Typecheck, and Build
     runs-on: ubuntu-latest
+    env:
+      SKIP_ENV_VALIDATION: true
 
     steps:
       - name: Checkout code
