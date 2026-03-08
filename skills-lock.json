@@ -1,0 +1,20 @@
+{
+	"version": 1,
+	"skills": {
+		"better-auth-best-practices": {
+			"source": "better-auth/skills",
+			"sourceType": "github",
+			"computedHash": "a4c830509e85557b59339d8d93a4e243e9e59c686e7678854d39230e12c2a6dc"
+		},
+		"shadcn": {
+			"source": "shadcn/ui",
+			"sourceType": "github",
+			"computedHash": "91c02eb706f046fb9d6a061efbb96496e4be751b5b14c283cf82baaa50f3a985"
+		},
+		"turborepo": {
+			"source": "antfu/skills",
+			"sourceType": "github",
+			"computedHash": "0da78a2acd422218587209e5b74e210d8259233d7df475c16be9180451117bd1"
+		}
+	}
+}

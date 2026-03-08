@@ -1,28 +1,39 @@
 {
-  "name": "web",
-  "version": "0.1.0",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "dev": "next dev --port 3000",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint --max-warnings 0",
-    "check-types": "next typegen && tsc --noEmit"
-  },
-  "dependencies": {
-    "@repo/ui": "*",
-    "next": "16.1.5",
-    "react": "^19.2.0",
-    "react-dom": "^19.2.0"
-  },
-  "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
-    "@types/node": "^22.15.3",
-    "@types/react": "19.2.2",
-    "@types/react-dom": "19.2.2",
-    "eslint": "^9.39.1",
-    "typescript": "5.9.2"
-  }
+	"name": "web",
+	"version": "0.0.1",
+	"type": "module",
+	"private": true,
+	"scripts": {
+		"dev": "vite dev --port 3000",
+		"build": "vite build",
+		"preview": "vite preview",
+		"lint": "biome lint .",
+		"format": "prettier --write \"**/*.{ts,tsx}\"",
+		"check-types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@elysiajs/eden": "latest",
+		"@repo/api": "workspace:*",
+		"@repo/env": "workspace:*",
+		"@tailwindcss/vite": "^4.1.18",
+		"@tanstack/react-router": "^1.132.0",
+		"@tanstack/react-start": "^1.132.0",
+		"@tanstack/router-plugin": "^1.132.0",
+		"@repo/ui": "workspace:*",
+		"better-auth": "^1.5.4",
+		"lucide-react": "^0.577.0",
+		"nitro": "latest",
+		"react": "^19.2.4",
+		"react-dom": "^19.2.4",
+		"tailwindcss": "^4.1.18",
+		"vite-tsconfig-paths": "^5.1.4"
+	},
+	"devDependencies": {
+		"@types/node": "^25.1.0",
+		"@types/react": "^19.2.10",
+		"@types/react-dom": "^19.2.3",
+		"@vitejs/plugin-react": "^5.1.1",
+		"typescript": "^5.9.3",
+		"vite": "^7.2.4"
+	}
 }

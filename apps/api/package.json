@@ -1,0 +1,31 @@
+{
+	"name": "@repo/api",
+	"version": "1.0.0",
+	"scripts": {
+		"build": "echo 'No build step required for Elysia in dev'",
+		"dev": "bun run --env-file=../../.env --watch src/index.ts",
+		"test": "bun test",
+		"lint": "biome check .",
+		"check-types": "tsc --noEmit"
+	},
+	"dependencies": {
+		"@elysiajs/cors": "^1.4.1",
+		"@elysiajs/opentelemetry": "^1.4.10",
+		"@elysiajs/swagger": "^1.3.1",
+		"@repo/database": "workspace:*",
+		"@repo/env": "workspace:*",
+		"better-auth": "^1.5.4",
+		"elysia": "latest",
+		"zod": "^3.25.76"
+	},
+	"devDependencies": {
+		"@repo/biome-config": "workspace:*",
+		"@repo/typescript-config": "workspace:*",
+		"bun-types": "latest",
+		"typescript": "^5.0.0"
+	},
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"module": "src/index.ts"
+}

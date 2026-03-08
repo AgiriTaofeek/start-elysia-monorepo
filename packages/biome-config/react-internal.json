@@ -1,0 +1,22 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.3.8/schema.json",
+	"root": false,
+	"extends": ["./base.json"],
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true
+	},
+
+	"files": {
+		"ignoreUnknown": false,
+		"includes": ["**", "!dist", "!build"]
+	},
+
+	"linter": {
+		"enabled": true,
+		"domains": {
+			"react": "recommended"
+		}
+	}
+}
