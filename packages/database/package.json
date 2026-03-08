@@ -10,10 +10,11 @@
 		"db:migrate:dev": "prisma migrate dev",
 		"db:push": "prisma db push",
 		"db:seed": "tsx src/seed.ts",
+		"test": "echo 'No tests for this package'",
 		"check-types": "tsc --noEmit",
 		"build": "npm run generate",
 		"dev": "npm run generate",
-		"format": "prisma format",
+		"format": "prisma format && biome check --write .",
 		"generate": "prisma generate",
 		"lint": "biome check .",
 		"studio": "prisma studio"

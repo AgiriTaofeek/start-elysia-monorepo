@@ -85,6 +85,25 @@ import { api } from "@/lib/api";
 const { data, error } = await api.health.get();
 ```
 
+### Testing Strategy
+
+This monorepo uses a bifurcated testing strategy for ultimate speed and confidence:
+
+- **Unit Tests (Bun Test)**: Runs in milliseconds for your logic. Run `bun run test` from the root to execute all unit tests in the monorepo.
+- **E2E Tests (Playwright)**: Launches a real browser to guarantee critical flows. Run `bun run test:e2e` for CI headless testing or `bun run test:ui` to open the interactive dashboard.
+
+### Production Docker Deployment
+
+Ready to ship to a server? We have "turbo pruned", multi-stage Dockerfiles.
+
+- `bun run compose:up` - Spins up the entire orchestrated stack natively mimicking production (PostgreSQL -> API App -> Web App).
+- `bun run docker:build:api` - Builds the tiny production image for the backend.
+- `bun run docker:build:web` - Builds the nitro output for the frontend.
+
+### Automated Code Quality (Husky)
+
+We have integrated Husky and `lint-staged`. Whenever you run `git commit`, the codebase will automatically format your changed files using **Biome**. You never have to worry about pushing misaligned or un-linted code again.
+
 ---
 
 ## ❓ Troubleshooting
@@ -113,8 +132,9 @@ If `bun dev` complains about the database:
 - **Backend**: [Elysia](https://elysiajs.com) — Blazing fast, optimized for Bun.
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com) — Modern, high-performance CSS.
 - **Auth**: [Better Auth](https://www.better-auth.com) — The most comprehensive auth solution for TypeScript.
-- **Tooling**: [Biome](https://biomejs.dev) — Extremely fast linting and formatting.
+- **Testing**: Playwright & Bun Test.
+- **Tooling**: [Biome](https://biomejs.dev) + Turborepo + Docker.
 
 ---
 
-Made with ❤️ by the test-forge team.
+Made with ❤️ by the start-elysia-monorepo team.
