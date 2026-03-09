@@ -89,7 +89,7 @@ const { data, error } = await api.health.get();
 
 This monorepo uses a bifurcated testing strategy for ultimate speed and confidence:
 
-- **Unit Tests (Bun Test)**: Runs in milliseconds for your logic. Run `bun run test` from the root to execute all unit tests in the monorepo.
+- **Unit Tests**: We use a powerful dual-runner system. `bun test` powers lightning-fast backend/logic tests, while **Vitest + React Testing Library** handles isolated frontend components. Run `bun run test` from the root to execute both perfectly in parallel!
 - **E2E Tests (Playwright)**: Launches a real browser to guarantee critical flows. Run `bun run test:e2e` for CI headless testing or `bun run test:ui` to open the interactive dashboard.
 
 ### Production Docker Deployment

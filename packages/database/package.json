@@ -14,8 +14,8 @@
 		"check-types": "tsc --noEmit",
 		"build": "npm run generate",
 		"dev": "npm run generate",
-		"format": "prisma format && biome check --write .",
-		"generate": "prisma generate",
+		"format": "SKIP_ENV_VALIDATION=1 prisma format && biome check --write .",
+		"generate": "SKIP_ENV_VALIDATION=1 prisma generate",
 		"lint": "biome check .",
 		"studio": "prisma studio"
 	},

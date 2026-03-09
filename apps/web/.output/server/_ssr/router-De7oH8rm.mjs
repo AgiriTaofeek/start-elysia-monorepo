@@ -12,7 +12,7 @@ import "async_hooks";
 import "stream";
 import "../_libs/isbot.mjs";
 import "../_libs/tiny-warning.mjs";
-const appCss = "/assets/globals-DWmXAHbq.css";
+const appCss = "/assets/globals-XsrNbPh6.css";
 const Route$1 = createRootRoute({
   head: () => ({
     meta: [

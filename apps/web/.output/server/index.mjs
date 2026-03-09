@@ -100,65 +100,65 @@ const assets = {
   "/favicon.ico": {
     "type": "image/vnd.microsoft.icon",
     "etag": '"f1e-ESBTjHetHyiokkO0tT/irBbMO8Y"',
-    "mtime": "2026-03-08T22:15:35.125Z",
+    "mtime": "2026-03-09T00:43:15.798Z",
     "size": 3870,
     "path": "../public/favicon.ico"
-  },
-  "/robots.txt": {
-    "type": "text/plain; charset=utf-8",
-    "etag": '"43-BEzmj4PuhUNHX+oW9uOnPSihxtU"',
-    "mtime": "2026-03-08T22:15:35.126Z",
-    "size": 67,
-    "path": "../public/robots.txt"
-  },
-  "/assets/geist-cyrillic-wght-normal-CHSlOQsW.woff2": {
-    "type": "font/woff2",
-    "etag": '"3964-jfUkxTfHRj1cpO33jEsDk2lkrvM"',
-    "mtime": "2026-03-08T22:15:35.231Z",
-    "size": 14692,
-    "path": "../public/assets/geist-cyrillic-wght-normal-CHSlOQsW.woff2"
-  },
-  "/assets/geist-latin-ext-wght-normal-DMtmJ5ZE.woff2": {
-    "type": "font/woff2",
-    "etag": '"3bcc-oSFlPnDlb7fAcQTPv6sqm6NgXXU"',
-    "mtime": "2026-03-08T22:15:35.231Z",
-    "size": 15308,
-    "path": "../public/assets/geist-latin-ext-wght-normal-DMtmJ5ZE.woff2"
   },
   "/manifest.json": {
     "type": "application/json",
     "etag": '"1c3-LIALM6M0zeaBf0hVt2nT9EnGqM8"',
-    "mtime": "2026-03-08T22:15:35.126Z",
+    "mtime": "2026-03-09T00:43:15.799Z",
     "size": 451,
     "path": "../public/manifest.json"
   },
-  "/assets/globals-BA94Q9jS.css": {
+  "/robots.txt": {
+    "type": "text/plain; charset=utf-8",
+    "etag": '"43-BEzmj4PuhUNHX+oW9uOnPSihxtU"',
+    "mtime": "2026-03-09T00:43:15.799Z",
+    "size": 67,
+    "path": "../public/robots.txt"
+  },
+  "/assets/globals-DkvCIXhE.css": {
     "type": "text/css; charset=utf-8",
-    "etag": '"6bc7-/16IN531NMbgrZhXQgSKpYVseu0"',
-    "mtime": "2026-03-08T22:15:35.231Z",
-    "size": 27591,
-    "path": "../public/assets/globals-BA94Q9jS.css"
+    "etag": '"6d00-zRkMIIyJnBrUMJB0Azzx5neiIYw"',
+    "mtime": "2026-03-09T00:43:15.886Z",
+    "size": 27904,
+    "path": "../public/assets/globals-DkvCIXhE.css"
   },
   "/assets/geist-latin-wght-normal-Dm3htQBi.woff2": {
     "type": "font/woff2",
     "etag": '"6ef0-pZqr0k2V92t+lxQ/ogxqTIOgDGM"',
-    "mtime": "2026-03-08T22:15:35.230Z",
+    "mtime": "2026-03-09T00:43:15.886Z",
     "size": 28400,
     "path": "../public/assets/geist-latin-wght-normal-Dm3htQBi.woff2"
   },
-  "/assets/index-CqR-UOr5.js": {
-    "type": "text/javascript; charset=utf-8",
-    "etag": '"1726f-AuCKBEjtuDeWs0JjC9lquOtUA6U"',
-    "mtime": "2026-03-08T22:15:35.231Z",
-    "size": 94831,
-    "path": "../public/assets/index-CqR-UOr5.js"
+  "/assets/geist-latin-ext-wght-normal-DMtmJ5ZE.woff2": {
+    "type": "font/woff2",
+    "etag": '"3bcc-oSFlPnDlb7fAcQTPv6sqm6NgXXU"',
+    "mtime": "2026-03-09T00:43:15.886Z",
+    "size": 15308,
+    "path": "../public/assets/geist-latin-ext-wght-normal-DMtmJ5ZE.woff2"
   },
-  "/assets/main-Ck-dQHqX.js": {
+  "/assets/index-DOpf8Sh4.js": {
     "type": "text/javascript; charset=utf-8",
-    "etag": '"4e4f5-UyPVcTY85DolnX1uu86tzz/pMvI"',
-    "mtime": "2026-03-08T22:15:35.231Z",
+    "etag": '"1726f-4UrK6q2SyC+Mw5qz/FB7/sRP9KM"',
+    "mtime": "2026-03-09T00:43:15.886Z",
+    "size": 94831,
+    "path": "../public/assets/index-DOpf8Sh4.js"
+  },
+  "/assets/geist-cyrillic-wght-normal-CHSlOQsW.woff2": {
+    "type": "font/woff2",
+    "etag": '"3964-jfUkxTfHRj1cpO33jEsDk2lkrvM"',
+    "mtime": "2026-03-09T00:43:15.886Z",
+    "size": 14692,
+    "path": "../public/assets/geist-cyrillic-wght-normal-CHSlOQsW.woff2"
+  },
+  "/assets/main-D5KanQ58.js": {
+    "type": "text/javascript; charset=utf-8",
+    "etag": '"4e4f5-3k9qAhPOeDJ3LfAhs73xPnPXNTc"',
+    "mtime": "2026-03-09T00:43:15.886Z",
     "size": 320757,
-    "path": "../public/assets/main-Ck-dQHqX.js"
+    "path": "../public/assets/main-D5KanQ58.js"
   }
 };
 function readAsset(id) {
@@ -185,7 +185,7 @@ const EncodingMap = {
   gzip: ".gz",
   br: ".br"
 };
-const _JAm3vz = defineHandler((event) => {
+const _R15Rzd = defineHandler((event) => {
   if (event.req.method && !METHODS.has(event.req.method)) {
     return;
   }
@@ -256,17 +256,17 @@ const findRouteRules = /* @__PURE__ */ (() => {
     return r;
   };
 })();
-const _lazy_UCHNxP = defineLazyEventHandler(() => Promise.resolve().then(function() {
+const _lazy_goy4cc = defineLazyEventHandler(() => Promise.resolve().then(function() {
   return ssrRenderer$1;
 }));
 const findRoute = /* @__PURE__ */ (() => {
-  const data = { route: "/**", handler: _lazy_UCHNxP };
+  const data = { route: "/**", handler: _lazy_goy4cc };
   return ((_m, p) => {
     return { data, params: { "_": p.slice(1) } };
   });
 })();
 const globalMiddleware = [
-  toEventHandler(_JAm3vz)
+  toEventHandler(_R15Rzd)
 ].filter(Boolean);
 const APP_ID = "default";
 function useNitroApp() {
