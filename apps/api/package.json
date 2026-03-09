@@ -17,6 +17,7 @@
 		"@repo/env": "workspace:*",
 		"better-auth": "^1.5.4",
 		"elysia": "^1.4.27",
+		"elysia-rate-limit": "^4.5.0",
 		"zod": "^3.25.76"
 	},
 	"devDependencies": {

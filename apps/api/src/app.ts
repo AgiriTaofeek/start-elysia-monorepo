@@ -3,6 +3,8 @@ import { opentelemetry } from "@elysiajs/opentelemetry";
 import swagger from "@elysiajs/swagger";
 import { Elysia } from "elysia";
 
+import { rateLimit } from "elysia-rate-limit";
+
 import { env } from "./env";
 import { auth } from "./lib/auth";
 import { healthRoutes } from "./routes/health";
@@ -13,6 +15,12 @@ function betterAuthHandler(context: { request: Request }) {
 }
 
 export const app = new Elysia()
+	.use(
+		rateLimit({
+			max: 100, // max 100 requests per minute per IP
+			duration: 60000,
+		}),
+	)
 	.use(
 		cors({
 			origin: env.BETTER_AUTH_URL,
