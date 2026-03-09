@@ -12,8 +12,8 @@
 		"db:seed": "tsx src/seed.ts",
 		"test": "echo 'No tests for this package'",
 		"check-types": "tsc --noEmit",
-		"build": "npm run generate",
-		"dev": "npm run generate",
+		"build": "bun run generate",
+		"dev": "bun run generate",
 		"format": "SKIP_ENV_VALIDATION=1 prisma format && biome check --write .",
 		"generate": "SKIP_ENV_VALIDATION=1 prisma generate",
 		"lint": "biome check .",
@@ -21,8 +21,8 @@
 	},
 	"dependencies": {
 		"@prisma/adapter-pg": "^7.4.2",
-		"@prisma/client": "latest",
-		"@prisma/client-runtime-utils": "7.2.0",
+		"@prisma/client": "^7.4.2",
+		"@prisma/client-runtime-utils": "^7.4.2",
 		"@repo/env": "workspace:*",
 		"dotenv": "^17.2.3",
 		"pg": "^8.16.3"
@@ -31,7 +31,7 @@
 		"@repo/biome-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"@types/pg": "^8.16.0",
-		"prisma": "latest",
+		"prisma": "^7.4.2",
 		"rimraf": "^5.0.5",
 		"tsx": "4.21.0",
 		"typescript": "5.5.4"

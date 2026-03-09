@@ -1,34 +1,36 @@
 # Stage 1: Pruner
-FROM oven/bun:1.1-alpine AS pruner
+FROM oven/bun:alpine AS pruner
 WORKDIR /app
+RUN apk add --no-cache nodejs
 RUN bun add -g turbo
 COPY . .
-RUN turbo prune web --docker
+RUN turbo prune @repo/web --docker
 
 # Stage 2: Installer
-FROM oven/bun:1.1-alpine AS installer
+FROM oven/bun:alpine AS installer
 WORKDIR /app
 
 # Copy pruned locks and package.json
 COPY --from=pruner /app/out/json/ .
-COPY --from=pruner /app/out/bun.lockb ./bun.lockb
+COPY --from=pruner /app/out/bun.lock ./bun.lock
 RUN bun install --frozen-lockfile
 
 # Stage 3: Builder
-FROM oven/bun:1.1-alpine AS builder
+FROM oven/bun:alpine AS builder
 WORKDIR /app
 COPY --from=installer /app/ .
 COPY --from=pruner /app/out/full/ .
 
 # Build the web app
-RUN bun run build --filter=web
+ENV SKIP_ENV_VALIDATION=1
+RUN cd apps/web && bun run build
 
 # Stage 4: Runner
-FROM oven/bun:1.1-alpine AS runner
+FROM oven/bun:alpine AS runner
 WORKDIR /app
 
 # Create a non-root user
-RUN adduser --system --uid 1001 --group bunuser
+RUN addgroup -g 1001 -S bunuser && adduser -u 1001 -S bunuser -G bunuser
 USER bunuser
 
 # Copy built server output and public files

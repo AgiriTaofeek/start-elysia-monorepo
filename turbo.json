@@ -15,11 +15,9 @@
 			"outputs": ["dist/**"]
 		},
 		"lint": {
-			"dependsOn": ["^lint"],
 			"env": ["SKIP_ENV_VALIDATION"]
 		},
 		"format": {
-			"dependsOn": ["^format"],
 			"env": ["SKIP_ENV_VALIDATION"]
 		},
 		"check-types": {

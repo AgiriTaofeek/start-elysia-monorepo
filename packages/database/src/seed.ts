@@ -1,36 +1,29 @@
 import "dotenv/config";
-import { Prisma } from "@prisma/client";
 import { prisma } from "./client.js";
 
-const DEFAULT_USERS = [
-	// Add your own user to pre-populate the database with
-	{
-		name: "Tim Apple",
-		email: "tim@apple.com",
-	},
-] as Prisma.UserCreateInput[];
+// Seed example for development data.
+// NOTE: To create auth users, use Better Auth's signUp API instead.
+// These are "raw" database records — no password or auth account is created.
+// Add your seed data below as needed.
 
-(async () => {
-	try {
-		await Promise.all(
-			DEFAULT_USERS.map((user) =>
-				prisma.user.upsert({
-					where: {
-						email: user.email!,
-					},
-					update: {
-						...user,
-					},
-					create: {
-						...user,
-					},
-				}),
-			),
-		);
-	} catch (error) {
+async function main() {
+	console.log("🌱 Seeding database...");
+
+	// Example: Uncomment and modify to seed your own data
+	// await prisma.user.upsert({
+	//   where: { email: "admin@example.com" },
+	//   update: {},
+	//   create: { email: "admin@example.com", name: "Admin" },
+	// });
+
+	console.log("✅ Seed complete.");
+}
+
+main()
+	.catch((error) => {
 		console.error(error);
 		process.exit(1);
-	} finally {
+	})
+	.finally(async () => {
 		await prisma.$disconnect();
-	}
-})();
+	});

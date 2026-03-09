@@ -33,3 +33,6 @@ jobs:
 
       - name: Typecheck (tsc)
         run: bun run check-types
+
+      - name: Unit Tests
+        run: bun run test

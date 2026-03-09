@@ -1,7 +1,7 @@
 import { env as sharedEnv } from "@repo/env";
 
 /**
- * Accessor for validated client-side environment variables.
- * These are prefixed with VITE_ in the .env file.
+ * Re-export validated environment variables for the web app.
+ * Extend this file if you need web-specific env vars beyond what @repo/env provides.
  */
 export const env = sharedEnv;
