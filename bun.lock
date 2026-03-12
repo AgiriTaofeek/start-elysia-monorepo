@@ -26,6 +26,7 @@
         "@repo/database": "workspace:*",
         "@repo/env": "workspace:*",
         "better-auth": "^1.5.4",
+        "dotenv": "^17.3.1",
         "elysia": "^1.4.27",
         "elysia-rate-limit": "^4.5.0",
         "zod": "^3.25.76",
@@ -88,8 +89,8 @@
         "pg": "^8.16.3",
       },
       "devDependencies": {
-        "@repo/biome-config": "workspace:*",
-        "@repo/typescript-config": "workspace:*",
+        "@repo/biome-config": "workspace:^",
+        "@repo/typescript-config": "workspace:^",
         "@types/pg": "^8.16.0",
         "prisma": "^7.4.2",
         "rimraf": "^5.0.5",

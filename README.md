@@ -25,23 +25,18 @@ Ensure you have installed:
 
 ### 2. Setup Commands
 ```bash
-# 1. Install all dependencies across the monorepo
+# 1. Install dependencies and setup environment
 bun install
+bun setup
 
-# 2. Setup your local environment variables
-# Copy examples to .env in each package (or run the helper below)
-cp apps/api/.env.example apps/api/.env
-cp apps/web/.env.example apps/web/.env
-cp packages/database/.env.example packages/database/.env
-
-# 3. Start your local PostgreSQL database via Docker
+# 2. Start your local PostgreSQL database via Docker
 bun db:up
 
-# 4. Push the database schema and generate the Prisma Client
+# 3. Push the database schema and generate the Prisma Client
 bun db:push
 bun db:generate
 
-# 5. Launch the development servers!
+# 4. Launch the development servers!
 bun dev
 ```
 
