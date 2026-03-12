@@ -1,7 +1,7 @@
-import { env as sharedEnv } from "@repo/env";
+import { webEnv } from "@repo/env";
 
 /**
  * Re-export validated environment variables for the web app.
  * Extend this file if you need web-specific env vars beyond what @repo/env provides.
  */
-export const env = sharedEnv;
+export const env = webEnv;

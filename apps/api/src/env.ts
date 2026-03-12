@@ -1,1 +1,3 @@
-export { env } from "@repo/env";
+import { apiEnv } from "@repo/env";
+
+export const env = apiEnv;

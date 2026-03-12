@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"scripts": {
 		"build": "echo 'No build step required for Elysia in dev'",
-		"dev": "bun run --env-file=../../.env --watch src/index.ts",
+		"dev": "bun run --watch src/index.ts",
 		"test": "bun test",
 		"lint": "biome check .",
 		"format": "biome check --write .",

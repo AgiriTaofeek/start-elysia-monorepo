@@ -29,16 +29,17 @@ Ensure you have installed:
 bun install
 
 # 2. Setup your local environment variables
-cp .env.example .env
+# Copy examples to .env in each package (or run the helper below)
+cp apps/api/.env.example apps/api/.env
+cp apps/web/.env.example apps/web/.env
+cp packages/database/.env.example packages/database/.env
 
 # 3. Start your local PostgreSQL database via Docker
 bun db:up
 
 # 4. Push the database schema and generate the Prisma Client
-cd packages/database
 bun db:push
-bun run generate
-cd ../..
+bun db:generate
 
 # 5. Launch the development servers!
 bun dev
@@ -100,15 +101,14 @@ bunx --bun shadcn@latest add <component-name>
 Whenever you modify `packages/database/prisma/schema.prisma` to add new tables/fields:
 
 ```bash
-cd packages/database
 # Applies changes directly to your local db during prototyping
 bun db:push
 
 # Re-generates the TS Client
-bun run generate
+bun db:generate
 
 # (Optional) Open the visual table editor
-bun run studio
+bun db:studio
 ```
 *Note: Before shipping to production, always create formal migrations using `bun db:migrate:dev`.*
 

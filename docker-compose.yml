@@ -19,7 +19,7 @@ services:
     container_name: start_elysia_api
     restart: always
     env_file:
-      - .env
+      - apps/api/.env
     environment:
       DATABASE_URL: postgresql://postgres:password@postgres:5432/start_elysia_db?schema=public
       PORT: 4000
@@ -37,7 +37,7 @@ services:
     container_name: start_elysia_web
     restart: always
     env_file:
-      - .env
+      - apps/web/.env
     environment:
       VITE_API_URL: http://localhost:4000
       PORT: 3000

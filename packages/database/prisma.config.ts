@@ -1,4 +1,4 @@
-import { env } from "@repo/env";
+import { dbEnv as env } from "@repo/env";
 import { defineConfig } from "prisma/config";
 
 export default defineConfig({

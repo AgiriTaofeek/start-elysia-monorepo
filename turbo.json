@@ -1,16 +1,18 @@
 {
 	"$schema": "https://turborepo.dev/schema.json",
 	"ui": "tui",
-	"globalEnv": [
-		"SKIP_ENV_VALIDATION",
-		"DATABASE_URL",
-		"BETTER_AUTH_SECRET",
-		"BETTER_AUTH_URL"
-	],
+	"globalEnv": ["SKIP_ENV_VALIDATION"],
 	"tasks": {
 		"build": {
 			"dependsOn": ["^build"],
-			"env": ["SKIP_ENV_VALIDATION"],
+			"env": [
+				"SKIP_ENV_VALIDATION",
+				"DATABASE_URL",
+				"BETTER_AUTH_SECRET",
+				"BETTER_AUTH_URL",
+				"VITE_API_URL",
+				"VITE_BETTER_AUTH_URL"
+			],
 			"inputs": ["$TURBO_DEFAULT$", ".env*"],
 			"outputs": ["dist/**"]
 		},
@@ -24,6 +26,20 @@
 			"dependsOn": ["^check-types"]
 		},
 		"dev": {
+			"persistent": true,
+			"cache": false
+		},
+		"db:push": {
+			"cache": false,
+			"env": ["DATABASE_URL"],
+			"inputs": ["$TURBO_DEFAULT$", ".env*"]
+		},
+		"generate": {
+			"dependsOn": ["^build"],
+			"env": ["SKIP_ENV_VALIDATION"],
+			"outputs": ["node_modules/.prisma/client/**"]
+		},
+		"studio": {
 			"persistent": true,
 			"cache": false
 		},
