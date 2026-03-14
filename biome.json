@@ -1,4 +1,20 @@
 {
 	"$schema": "https://biomejs.dev/schemas/2.4.6/schema.json",
-	"extends": ["@repo/biome-config/base"]
+	"extends": ["@repo/biome-config/base"],
+	"linter": {
+		"includes": [
+			"**/*",
+			"!**/.agent/**",
+			"!**/.agents/**",
+			"!**/routeTree.gen.ts"
+		]
+	},
+	"formatter": {
+		"includes": [
+			"**/*",
+			"!**/.agent/**",
+			"!**/.agents/**",
+			"!**/routeTree.gen.ts"
+		]
+	}
 }
